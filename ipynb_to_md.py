@@ -138,8 +138,7 @@ def ipynb_to_md(ipynb_path, file_name):
           sources = cell['source']
 
           for j in range(len(sources)):
-            # if last item
-            md_data += sources[j] + '\n'
+            md_data += sources[j]
 
           md_data += '\n```\n'
 
@@ -155,8 +154,8 @@ def ipynb_to_md(ipynb_path, file_name):
                   texts = output['text']
                   md_data += '\n'
                   for text in texts:
-                    md_data += '\> ' + text
-                  md_data += '\n'
+                    if text.find('Users/shindongwon') == -1:
+                      md_data += '\> ' + text + '<br>'
 
                 elif output_type == 'execute_result':
                   data = output['data']
@@ -164,7 +163,8 @@ def ipynb_to_md(ipynb_path, file_name):
                     texts = data['text/plain']
                     md_data += '\n'
                     for text in texts:
-                      md_data += '\> ' + text
+                      if text.find('Users/shindongwon') == -1:
+                        md_data += '\> ' + text
                     md_data += '\n'
                     
                 elif output_type == 'display_data':
