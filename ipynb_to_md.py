@@ -92,7 +92,7 @@ for root, dirs, files in os.walk(input_path):
                       "author_profile: false\n",
                       "typora-root-url: ../\n",
                       "sidebar:\n",
-                      '  nav: "docs"\n',
+                      '  nav: "counts"\n',
                       '---\n',
                   ]
               }
@@ -134,7 +134,7 @@ for root, dirs, files in os.walk(input_path):
                         'typora-root-url: ../\n' \
                         '\n' \
                         'sidebar:\n' \
-                        '  nav: "docs"\n' \
+                        '  nav: "counts"\n' \
                         '---\n' \
                         '\n' + contents
 

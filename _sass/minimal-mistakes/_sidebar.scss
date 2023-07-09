@@ -6,6 +6,10 @@
    Default
    ========================================================================== */
 
+.layout--single .sidebar {
+  margin-top: 7em;
+}
+
 .sidebar {
   @include clearfix();
   // @include breakpoint(max-width $large) {
