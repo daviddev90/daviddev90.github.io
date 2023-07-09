@@ -60,10 +60,10 @@ for root, dirs, files in os.walk(input_path):
         else:
            tag_text = f'[python {category_name}]'
 
-        new_file_name = creation_date.strftime('%Y-%m-%d-') + post_name + '.ipynb'
+        new_file_name = creation_date.strftime('%Y-%m-%d-') + post_name
 
         if file.endswith('.ipynb'):
-            print(category_name, post_name)
+            new_file_name += '.ipynb'
 
             shutil.copy2(file_path, temp_path)
 
@@ -111,6 +111,7 @@ for root, dirs, files in os.walk(input_path):
 
         if file.endswith('.md'):  # md 파일만 처리
             shutil.copy2(file_path, output_path)
+            new_file_name += '.md'
 
             new_file_path = os.path.join(output_path, new_file_name)
             os.rename(os.path.join(output_path, file), new_file_path)
@@ -187,6 +188,7 @@ def ipynb_to_md(ipynb_path, file_name):
                   for text in texts:
                     if text.find('Users/shindongwon') == -1:
                       md_data += '\> ' + text + '<br>'
+                  md_data += '\n'
 
                 elif output_type == 'execute_result':
                   data = output['data']
