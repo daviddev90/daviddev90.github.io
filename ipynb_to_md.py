@@ -58,7 +58,7 @@ for root, dirs, files in os.walk(input_path):
         if category_name == 'python':
            tag_text = '[python]'
         else:
-           tag_text = f'[python {category_name}]'
+           tag_text = f'[python, {category_name}]'
 
         new_file_name = creation_date.strftime('%Y-%m-%d-') + post_name
 
