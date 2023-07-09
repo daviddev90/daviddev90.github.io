@@ -53,8 +53,8 @@ for root, dirs, files in os.walk(input_path):
                       "---\n",
                       "layout: single\n",
                       f'title: "[{group_name}]{file_name}"\n',
-                      "categories: math\n",
-                      "tag: [python, ml, math]\n",
+                      "categories: ml\n",
+                      "tag: [python, ml]\n",
                       "toc: true\n",
                       "author_profile: false\n",
                       "typora-root-url: ../\n",
@@ -134,15 +134,12 @@ def ipynb_to_md(ipynb_path, file_name):
 
         if cell_type == 'code':
 
-          md_data += '``` python\n'
+          md_data += '\n``` python\n'
           sources = cell['source']
 
           for j in range(len(sources)):
             # if last item
-            if j == len(sources) - 1:
-              md_data += sources[j]
-            else:
-              md_data += sources[j] + '\n'
+            md_data += sources[j] + '\n'
 
           md_data += '\n```\n'
 
@@ -158,7 +155,8 @@ def ipynb_to_md(ipynb_path, file_name):
                   texts = output['text']
                   md_data += '\n'
                   for text in texts:
-                    md_data += '\> ' + text + '\n'
+                    md_data += '\> ' + text
+                  md_data += '\n'
 
                 elif output_type == 'execute_result':
                   data = output['data']
@@ -166,7 +164,8 @@ def ipynb_to_md(ipynb_path, file_name):
                     texts = data['text/plain']
                     md_data += '\n'
                     for text in texts:
-                      md_data += '\> ' + text + '\n'
+                      md_data += '\> ' + text
+                    md_data += '\n'
                     
                 elif output_type == 'display_data':
                   data = output['data']
