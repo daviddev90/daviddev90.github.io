@@ -184,21 +184,21 @@ def ipynb_to_md(ipynb_path, file_name):
 
                 if output_type == 'stream':
                   texts = output['text']
-                  md_data += '\n'
+                  md_data += '\n<div>'
                   for text in texts:
                     if text.find('Users/shindongwon') == -1:
                       md_data += '<op>' + text + '</op><br>'
-                  md_data += '\n'
+                  md_data += '</div>\n'
 
                 elif output_type == 'execute_result':
                   data = output['data']
                   if 'text/plain' in data.keys():
                     texts = data['text/plain']
-                    md_data += '\n'
+                    md_data += '\n<div>'
                     for text in texts:
                       if text.find('Users/shindongwon') == -1:
                         md_data += '<op>' + text + '</op>'
-                    md_data += '\n\n'
+                    md_data += '</div>\n\n'
                     
                 elif output_type == 'display_data':
                   data = output['data']
