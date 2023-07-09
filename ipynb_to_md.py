@@ -19,6 +19,15 @@ if not os.path.isdir(temp_path):
 if not os.path.isdir('./images/'):
     os.makedirs('./images/')
 
+# get every file path in './_posts/'
+file_paths = []
+for root, dirs, files in os.walk(output_path):
+    for file in files:
+        # file의 앞 11글짜 제거
+        postname = file[11:]
+        postname = postname.split('.')[0]
+        file_paths.append(postname)
+
 for root, dirs, files in os.walk(input_path):
     for file in files:
 
@@ -31,6 +40,18 @@ for root, dirs, files in os.walk(input_path):
         creation_date = datetime.fromtimestamp(os.path.getctime(file_path))
 
         file_path_splited = file_path.split('/')
+
+        post_name = file_path_splited[-2] + '~' + file_path_splited[-1].split('.')[0]
+        post_name = post_name.replace(' ', '_')
+
+        if post_name[-3:] == '작성중':
+            print('작성중인 파일입니다. : ', post_name)
+            continue
+
+        # 이미 post가 존재할 경우 넘어감!
+        if post_name in file_paths:
+            continue
+        
         category_name = file_path_splited[2]
         tag_text = ''
 
@@ -38,9 +59,6 @@ for root, dirs, files in os.walk(input_path):
            tag_text = '[python]'
         else:
            tag_text = f'[python {category_name}]'
-
-        post_name = file_path_splited[-2] + '~' + file_path_splited[-1].split('.')[0]
-        post_name = post_name.replace(' ', '_')
 
         new_file_name = creation_date.strftime('%Y-%m-%d-') + post_name + '.ipynb'
 
