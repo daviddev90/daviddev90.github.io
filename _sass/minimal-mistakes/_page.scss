@@ -68,6 +68,21 @@ body {
   }
 }
 
+.cods {
+  margin-bottom: 2em;
+  padding: 1em;
+  border: 1px solid #ccc;
+
+  h2 {
+    margin-top: 0;
+    font-size: 1.1em;
+  }
+
+  a {
+    display: block;
+  }
+}
+
 .page__title {
   margin-top: 0;
   line-height: 1;
