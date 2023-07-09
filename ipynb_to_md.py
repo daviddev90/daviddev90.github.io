@@ -30,11 +30,26 @@ for root, dirs, files in os.walk(input_path):
         # 파일의 생성 날짜를 가져옴
         creation_date = datetime.fromtimestamp(os.path.getctime(file_path))
 
+        file_path_splited = file_path.split('/')
+        category_name = file_path_splited[2]
+        tag_text = ''
+
+        if category_name == 'python':
+           tag_text = '[python]'
+        else:
+           tag_text = f'[python {category_name}]'
+
+        post_name = file_path_splited[-2] + '~' + file_path_splited[-1].split('.')[0]
+        post_name = post_name.replace(' ', '_')
+
+        new_file_name = creation_date.strftime('%Y-%m-%d-') + post_name + '.ipynb'
+
         if file.endswith('.ipynb'):
+            print(category_name, post_name)
+
             shutil.copy2(file_path, temp_path)
 
             # 파일 이름을 'YYYY-MM-DD-NN.ipynb' 형식으로 변경
-            new_file_name = creation_date.strftime('%Y-%m-%d-') + creation_date.strftime('%H%M%S') + '.ipynb'
             new_file_path = os.path.join(temp_path, new_file_name)
             os.rename(os.path.join(temp_path, file), new_file_path)
 
@@ -53,8 +68,8 @@ for root, dirs, files in os.walk(input_path):
                       "---\n",
                       "layout: single\n",
                       f'title: "[{group_name}]{file_name}"\n',
-                      "categories: ml\n",
-                      "tag: [python, ml]\n",
+                      f"categories: {category_name}\n",
+                      f"tag: {tag_text}\n",
                       "toc: true\n",
                       "author_profile: false\n",
                       "typora-root-url: ../\n",
@@ -79,8 +94,6 @@ for root, dirs, files in os.walk(input_path):
         if file.endswith('.md'):  # md 파일만 처리
             shutil.copy2(file_path, output_path)
 
-            # 파일 이름을 'YYYY-MM-DD-NN.ipynb' 형식으로 변경
-            new_file_name = creation_date.strftime('%Y-%m-%d-') + creation_date.strftime('%H%M%S') + '.md'
             new_file_path = os.path.join(output_path, new_file_name)
             os.rename(os.path.join(output_path, file), new_file_path)
 
@@ -95,8 +108,8 @@ for root, dirs, files in os.walk(input_path):
                 new_data = "---\n" \
                         "layout: single\n" \
                          f'title: "[{group_name}]{file_name}"\n' \
-                        'categories: ml\n' \
-                        'tag: [python, ml]\n' \
+                        f'categories: {category_name}\n' \
+                        f'tag: {tag_text}\n' \
                         'toc: true\n' \
                         'author_profile: false\n' \
                         'typora-root-url: ../\n' \
