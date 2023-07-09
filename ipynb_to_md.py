@@ -50,17 +50,17 @@ for root, dirs, files in os.walk(input_path):
                   "cell_type": "markdown",
                   "metadata": {},
                   "source": [
-                      "---",
-                      "layout: single",
-                      f'title: "[{group_name}]{file_name}"',
-                      "categories: math",
-                      "tag: [python, ml, math]",
-                      "toc: true",
-                      "author_profile: false",
-                      "typora-root-url: ../",
-                      "sidebar:",
-                      '  nav: "docs"',
-                      '---',
+                      "---\n",
+                      "layout: single\n",
+                      f'title: "[{group_name}]{file_name}"\n',
+                      "categories: math\n",
+                      "tag: [python, ml, math]\n",
+                      "toc: true\n",
+                      "author_profile: false\n",
+                      "typora-root-url: ../\n",
+                      "sidebar:\n",
+                      '  nav: "docs"\n',
+                      '---\n',
                   ]
               }
 
