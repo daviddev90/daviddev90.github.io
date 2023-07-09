@@ -161,7 +161,7 @@ def ipynb_to_md(ipynb_path, file_name):
           for j in range(len(notebook['cells'][i]['source'])):
             md_data += notebook['cells'][i]['source'][j]
           
-          md_data += '\n'
+          md_data += '\n \n'
 
 
         if cell_type == 'code':
@@ -187,7 +187,7 @@ def ipynb_to_md(ipynb_path, file_name):
                   md_data += '\n'
                   for text in texts:
                     if text.find('Users/shindongwon') == -1:
-                      md_data += '\> ' + text + '<br>'
+                      md_data += '<op>' + text + '</op><br>'
                   md_data += '\n'
 
                 elif output_type == 'execute_result':
@@ -197,8 +197,8 @@ def ipynb_to_md(ipynb_path, file_name):
                     md_data += '\n'
                     for text in texts:
                       if text.find('Users/shindongwon') == -1:
-                        md_data += '\> ' + text
-                    md_data += '\n'
+                        md_data += '<op>' + text + '</op>'
+                    md_data += '\n\n'
                     
                 elif output_type == 'display_data':
                   data = output['data']
