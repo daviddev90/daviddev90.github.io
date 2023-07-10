@@ -19,6 +19,9 @@ if not os.path.isdir(temp_path):
 if not os.path.isdir('./images/'):
     os.makedirs('./images/')
 
+processed_idx = 0
+already_exist_idx = 0
+error_occured_idx = 0
 
 # 이미 _posts 폴더에 파일이 존재하면 작업을 건너뛰기 위함
 file_paths = []
@@ -194,9 +197,12 @@ for name_series in cods:
             # 파일 열기 및 데이터 쓰기
             with io.open(copying_path, 'w', encoding='utf-8') as f:
                 f.write(new_data)
+            
+            processed_idx += 1
 
         except:
             # remove file
+            error_occured_idx += 1
             print('problematic file: ', copying_path)
 
 
@@ -227,6 +233,7 @@ for name_series in cods:
 
       # 이미 post가 존재할 경우 넘어감!
       if post_name in file_paths:
+          already_exist_idx += 1
           continue
 
       md_data = ''
@@ -326,6 +333,11 @@ for name_series in cods:
       with open(post_path, 'w') as f:
         f.write(md_data)
 
+      processed_idx += 1
 
-# remove temp folder
-# shutil.rmtree(temp_path)
+#remove temp folder
+shutil.rmtree(temp_path)
+
+print('processed: ', processed_idx)
+print('already exist: ', already_exist_idx)
+print('error occured: ', error_occured_idx)
