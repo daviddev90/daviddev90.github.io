@@ -167,7 +167,8 @@ for name_series in cods:
               doc_name = name_doc_in_doclist.replace('_', ' ')
 
               if name_doc_in_doclist != name_doc:
-                n_contents += f'<a href="/{name_category}/{name_series}~{name_doc_in_doclist}/">{doc_name}</a>'
+                if name_doc_in_doclist[-3:] != '작성중':
+                  n_contents += f'<a href="/{name_category}/{name_series}~{name_doc_in_doclist}/">{doc_name}</a>'
               else:
                 n_contents += f'<p><b>(현재 글) {name_doc}</b></p>'
 
@@ -254,7 +255,8 @@ for name_series in cods:
                 doc_name = name_doc_in_doclist.replace('_', ' ')
 
                 if name_doc_in_doclist != name_doc:
-                  md_data += f'<a href="/{name_category}/{name_series}~{name_doc_in_doclist}/">{doc_name}</a>'
+                  if name_doc_in_doclist[-3:] != '작성중':
+                    md_data += f'<a href="/{name_category}/{name_series}~{name_doc_in_doclist}/">{doc_name}</a>'
                 else:
                   md_data += f'<p><b>(현재 글) {name_doc}</b></p>'
 
