@@ -152,7 +152,7 @@ for name_series in cods:
 
             h2_name = name_series.replace('_', ' ')
             
-            n_contents += f'<div class="cods"><h2>{h2_name} 시리즈 목차</h2>'
+            n_contents += f'<nav class="cods"><h2>{h2_name} 시리즈 목차</h2><ol>'
             doclist = cods[name_series]['docs']
 
             # copy doclist
@@ -168,11 +168,11 @@ for name_series in cods:
 
               if name_doc_in_doclist != name_doc:
                 if name_doc_in_doclist[-3:] != '작성중':
-                  n_contents += f'<a href="/{name_category}/{name_series}~{name_doc_in_doclist}/">{doc_name}</a>'
+                  n_contents += f'<li><a href="/{name_category}/{name_series}~{name_doc_in_doclist}/">{doc_name}</a></li>'
               else:
-                n_contents += f'<p><b>(현재 글) {name_doc}</b></p>'
+                n_contents += f'<li><p>(현재 글) {name_doc}</p></li>'
 
-            n_contents += '</div>\n\n'
+            n_contents += '</ol></nav>\n\n'
 
             name_series_title = name_series.replace('_', ' ')
             name_doc_title = name_doc.replace('_', ' ')
@@ -241,7 +241,7 @@ for name_series in cods:
             if i == 1:
               h2_name = name_series.replace('_', ' ')
               
-              md_data += f'<div class="cods"><h2>{h2_name} 시리즈 목차</h2>'
+              md_data += f'<nav class="cods"><h2>{h2_name} 시리즈 목차</h2><ol>'
               doclist = cods[name_series]['docs']
 
               # copy doclist
@@ -256,11 +256,11 @@ for name_series in cods:
 
                 if name_doc_in_doclist != name_doc:
                   if name_doc_in_doclist[-3:] != '작성중':
-                    md_data += f'<a href="/{name_category}/{name_series}~{name_doc_in_doclist}/">{doc_name}</a>'
+                    md_data += f'<li><a href="/{name_category}/{name_series}~{name_doc_in_doclist}/">{doc_name}</a></li>'
                 else:
-                  md_data += f'<p><b>(현재 글) {name_doc}</b></p>'
+                  md_data += f'<li><p>(현재 글) {name_doc}</p></li>'
 
-              md_data += '</div>\n\n'
+              md_data += '</ol></nav>\n\n'
 
 
             if cell_type == 'markdown':
