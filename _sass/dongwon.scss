@@ -1,0 +1,26 @@
+// post page 상단 시리즈 목차
+
+.cods {
+  margin-bottom: 2em;
+  padding: 1em;
+  border: 1px solid #ccc;
+
+  h2 {
+    margin-top: 0;
+    font-size: 1.1em;
+  }
+
+  a {
+    display: block;
+    margin-left: 3.84em;
+  }
+  p {
+    user-select: none;
+    margin-bottom: 0;
+  }
+
+  ol {
+    padding: 0;
+    margin-bottom: 0;
+  }
+}

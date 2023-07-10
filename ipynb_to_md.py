@@ -173,7 +173,7 @@ for name_series in cods:
                 if name_doc_in_doclist[-3:] != '작성중':
                   n_contents += f'<li><a href="/{name_category}/{name_series}~{name_doc_in_doclist}/">{doc_name}</a></li>'
               else:
-                n_contents += f'<li><p>(현재 글) {name_doc}</p></li>'
+                n_contents += f'<li><p>(현재 글) {doc_name}</p></li>'
 
             n_contents += '</ol></nav>\n\n'
 
@@ -265,7 +265,7 @@ for name_series in cods:
                   if name_doc_in_doclist[-3:] != '작성중':
                     md_data += f'<li><a href="/{name_category}/{name_series}~{name_doc_in_doclist}/">{doc_name}</a></li>'
                 else:
-                  md_data += f'<li><p>(현재 글) {name_doc}</p></li>'
+                  md_data += f'<li><p>(현재 글) {doc_name}</p></li>'
 
               md_data += '</ol></nav>\n\n'
 
