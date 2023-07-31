@@ -176,7 +176,7 @@ for name_series in cods:
 
                 h2_name = name_series.replace('_', ' ')
 
-                n_contents += f'<nav class="cods"><h2>{h2_name} 시리즈 목차</h2><ol>'
+                n_contents += f'<nav class="cods"><h2>{h2_name} Posts</h2><ol>'
                 doclist = cods[name_series]['docs']
 
                 # copy doclist
@@ -194,7 +194,7 @@ for name_series in cods:
                         if name_doc_in_doclist[-3:] != '작성중':
                             n_contents += f'<li><a href="/{name_category}/{name_series}~{name_doc_in_doclist}/">{doc_name}</a></li>'
                     else:
-                        n_contents += f'<li><p>(현재 글) {doc_name}</p></li>'
+                        n_contents += f'<li><p>(current) {doc_name}</p></li>'
 
                 n_contents += '</ol></nav>\n\n'
 
@@ -271,7 +271,7 @@ for name_series in cods:
                     if i == 1:
                         h2_name = name_series.replace('_', ' ')
 
-                        md_data += f'<nav class="cods"><h2>{h2_name} 시리즈 목차</h2><ol>'
+                        md_data += f'<nav class="cods"><h2>{h2_name} posts</h2><ol>'
                         doclist = cods[name_series]['docs']
 
                         # copy doclist
@@ -288,7 +288,7 @@ for name_series in cods:
                                 if name_doc_in_doclist[-3:] != '작성중':
                                     md_data += f'<li><a href="/{name_category}/{name_series}~{name_doc_in_doclist}/">{doc_name}</a></li>'
                             else:
-                                md_data += f'<li><p>(현재 글) {doc_name}</p></li>'
+                                md_data += f'<li><p>(current) {doc_name}</p></li>'
 
                         md_data += '</ol></nav>\n\n'
 
