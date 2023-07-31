@@ -91,7 +91,7 @@ They say my approach is Brute Force Approach.
 
 **Algorithm**
 
-The brute force approach is simple. Loop through each element xx*x* and find if there is another value that equals to target−xtarget - x*t**a**r**g**e**t*−*x*.
+The brute force approach is simple. Loop through each element xx*x* and find if there is another value that equals to $target−x$
 
 **Implementation**
 
@@ -106,7 +106,7 @@ class Solution:
 
 **Complexity Analysis**
 
-- Time complexity: O(n^2).
-  For each element, we try to find its complement by looping through the rest of the array which takes O(n)O(n)*O*(*n*) time. Therefore, the time complexity is O(n2)O(n^2)*O*(*n*2).
-- Space complexity: O(1)O(1)*O*(1).
+- Time complexity: $O(n^2)$
+- For each element, we try to find its complement by looping through the rest of the array which takes $O(n)$ time. Therefore, the time complexity is $O(n^2)$.
+- Space complexity: $O(1)$.
   The space required does not depend on the size of the input array, so only constant space is used.
