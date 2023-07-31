@@ -1,7 +1,10 @@
-I am a six-year front-end developer who has never studied data structures, algorithms, etc. While studying machine learning, I need this knowledge and study for the first time.
+As a six-year front-end developer, I had never studied data structures or algorithms.
+Yes, you can blame me.
 
-It's my first time solving leetcode, so I just tried number one.
-When I saw the problem, I felt, "Oh, that's easy."
+While studying machine learning, I felt I needed to know about this topic(data structures, algorithms, and so on).
+
+I decided to tackle LeetCode for the first time, starting with problem number one. 
+At first glance, I thought, "This looks easy."
 
 And now I reveal how stupid I was.
 
@@ -9,13 +12,9 @@ And now I reveal how stupid I was.
 
 ## Problem
 
-Given an array of integers `nums` and an integer `target`, return *indices of the two numbers such that they add up to `target`*.
+Input: an array of integers `nums` and an integer `target`.
 
-You may assume that each input would have ***exactly\* one solution**, and you may not use the *same* element twice.
-
-You can return the answer in any order.
-
- 
+return *indices of the two numbers such that they add up to `target`*.
 
 **Example 1:**
 
@@ -39,8 +38,6 @@ Input: nums = [3,3], target = 6
 Output: [0,1]
 ```
 
- 
-
 **Constraints:**
 
 - `2 <= nums.length <= 104`
@@ -55,6 +52,9 @@ Output: [0,1]
 ### Attempt 1
 
 #### My Solution
+
+I wrote the code without thinking.
+I just used nested loop syntax. (thinking 'That is easy')
 
 ``` javascript
 /**
