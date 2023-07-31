@@ -41,9 +41,11 @@ Output: [0,1]
 
 
 
-## Solve
+## Solve 
 
-### My Original Answer
+### Attempt 1
+
+#### Answer
 
 ``` javascript
 /**
@@ -71,7 +73,40 @@ I am a six-year front-end developer who has never studied data structures, algor
 It's my first time solving leetcode, so I just tried number one.
 When I saw the problem, I felt, "Oh, that's easy."
 
-### Result of First Answer
+#### Result
 
-![스크린샷 2023-07-31 오후 6.04.31](../../../images/typora/스크린샷 2023-07-31 오후 6.04.31.png)
+![0001-first-result](../../../images/typora/0001-first-result.png)
 
+Ok. that's not good.
+My code was too slow and needed improvement.
+
+
+
+#### Editorial Study
+
+When I checked the editorial, I informed the expected answer and the problem.
+They say my approach is Brute Force Approach.
+
+**Approach 1: Brute Force**
+
+**Algorithm**
+
+The brute force approach is simple. Loop through each element xx*x* and find if there is another value that equals to target−xtarget - x*t**a**r**g**e**t*−*x*.
+
+**Implementation**
+
+``` python
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        for i in range(len(nums)):
+            for j in range(i + 1, len(nums)):
+                if nums[j] == target - nums[i]:
+                    return [i, j]
+```
+
+**Complexity Analysis**
+
+- Time complexity: O(n^2).
+  For each element, we try to find its complement by looping through the rest of the array which takes O(n)O(n)*O*(*n*) time. Therefore, the time complexity is O(n2)O(n^2)*O*(*n*2).
+- Space complexity: O(1)O(1)*O*(1).
+  The space required does not depend on the size of the input array, so only constant space is used.
