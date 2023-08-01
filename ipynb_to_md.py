@@ -196,7 +196,19 @@ for name_series in cods:
                     contents = f.read()
 
                 contents = contents.replace(
+                    '../../../../../images/typora', '/images/typora')
+
+                contents = contents.replace(
+                    '../../../../images/typora', '/images/typora')
+
+                contents = contents.replace(
                     '../../../images/typora', '/images/typora')
+
+                contents = contents.replace(
+                    '../../images/typora', '/images/typora')
+
+                contents = contents.replace(
+                    '../images/typora', '/images/typora')
 
                 n_contents = ''
 
