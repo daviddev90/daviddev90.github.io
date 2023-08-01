@@ -104,12 +104,33 @@ for name_series in cods:
             already_exist_idx += 1
             continue
 
-        tag_text = ''
-
-        if name_category == 'python':
-            tag_text = '[python]'
-        else:
-            tag_text = f'[python, {name_category}]'
+        tag_text = name_category
+        if file_path.endswith('.ipynb'):
+            tag_text += ', python'
+        if 'javascript' in name_series.lower():
+            tag_text += ', javascript'
+        if 'typescript' in name_series.lower():
+            tag_text += ', typescript'
+        if 'react' in name_series.lower():
+            if 'react' not in tag_text:
+                tag_text += ', react'
+        if 'svelte' in name_series.lower():
+            if 'svelte' not in tag_text:
+                tag_text += ', svelte'
+        if 'javascript' not in tag_text:
+            if 'react' in tag_text:
+                tag_text += ', javascript'
+            if 'svelte' in tag_text:
+                tag_text += ', javascript'
+        if 'python' not in tag_text:
+            if 'python' in name_series.lower():
+                tag_text += ', python'
+            if name_category == 'ml':
+                tag_text += ', python'
+            if name_category == 'dl':
+                tag_text += ', python'
+        if name_category == 'web':
+            tag_text += ', html'
 
         if file_path.endswith('.ipynb'):
             new_file_name += '.ipynb'
