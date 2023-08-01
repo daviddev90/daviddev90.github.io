@@ -1,8 +1,8 @@
 ---
 layout: single
 title: "[LeetCode Javascript]1 - Two Sum"
-categories: leetcode
-tag: leetcode, javascript
+categories: dsa
+tag: dsa, javascript, algorithm
 toc: true
 author_profile: false
 typora-root-url: ../
@@ -10,7 +10,7 @@ sidebar:
   nav: "counts"
 ---
 
-<nav class="cods"><h2>LeetCode Javascript Posts</h2><ol><li><p>(current) 1 - Two Sum</p></li><li><a href="/leetcode/LeetCode_Javascript~2_-_Add_Two_Numbers/">2 - Add Two Numbers</a></li></ol></nav>
+<nav class="cods"><h2>LeetCode Javascript Posts</h2><ol><li><p>(current) 1 - Two Sum</p></li><li><a href="/dsa/LeetCode_Javascript~2_-_Add_Two_Numbers/">2 - Add Two Numbers</a></li></ol></nav>
 
 As a six-year front-end developer, I had never studied data structures or algorithms.
 Yes, you can blame me.

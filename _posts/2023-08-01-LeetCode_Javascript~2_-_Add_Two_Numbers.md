@@ -1,8 +1,8 @@
 ---
 layout: single
 title: "[LeetCode Javascript]2 - Add Two Numbers"
-categories: leetcode
-tag: leetcode, javascript
+categories: dsa
+tag: dsa, javascript, algorithm
 toc: true
 author_profile: false
 typora-root-url: ../
@@ -10,7 +10,7 @@ sidebar:
   nav: "counts"
 ---
 
-<nav class="cods"><h2>LeetCode Javascript Posts</h2><ol><li><a href="/leetcode/LeetCode_Javascript~1_-_Two_Sum/">1 - Two Sum</a></li><li><p>(current) 2 - Add Two Numbers</p></li></ol></nav>
+<nav class="cods"><h2>LeetCode Javascript Posts</h2><ol><li><a href="/dsa/LeetCode_Javascript~1_-_Two_Sum/">1 - Two Sum</a></li><li><p>(current) 2 - Add Two Numbers</p></li></ol></nav>
 
 ## Problem
 
@@ -40,7 +40,9 @@ Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
 Output: [8,9,9,9,0,0,0,1]
 ```
 
-## Solve
+
+
+## Solve 
 
 ### Attempt 1
 
@@ -50,7 +52,7 @@ Shamefully, I thought 'wow, is there "ListNode" type in javascript? that's new t
 And I tried to submit my solution and got error message.
 
 And turns out, ListNode is just a function they made.
-They wrote about it in comment, and I missed it.
+They wrote about it in comment, and I missed it. 
 That's my fault.
 
 ```javascript
@@ -75,34 +77,36 @@ From the next question, I will read the comments carefully and solve the problem
 Anyway, my answer is this:
 
 ```javascript
-let addTwoNumbers = function (l1, l2) {
-  let sum = 0;
-  const answer = new ListNode(0);
-  let current = answer;
+let addTwoNumbers = function(l1, l2) {
+    let sum = 0;
+    const answer = new ListNode(0);
+    let current = answer;
 
-  while (l1 || l2 || sum > 0) {
-    if (l1) {
-      sum += l1.val;
-      l1 = l1.next;
+    while(l1 || l2 || sum > 0){
+        if (l1){
+            sum += l1.val;
+            l1 = l1.next;
+        }
+        if (l2){
+            sum += l2.val;
+            l2 = l2.next;
+        }
+        if (sum >= 10){
+            current.next = new ListNode(sum - 10);
+            current = current.next
+            sum = 1;
+        } else{
+            current.next = new ListNode(sum);
+            current = current.next
+            sum = 0;
+        }
     }
-    if (l2) {
-      sum += l2.val;
-      l2 = l2.next;
-    }
-    if (sum >= 10) {
-      current.next = new ListNode(sum - 10);
-      current = current.next;
-      sum = 1;
-    } else {
-      current.next = new ListNode(sum);
-      current = current.next;
-      sum = 0;
-    }
-  }
 
-  return answer.next;
+    return answer.next;
 };
 ```
+
+
 
 #### Result
 

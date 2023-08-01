@@ -35,7 +35,7 @@ if not os.path.isdir('./images/'):
     os.makedirs('./images/')
 
 processed_idx = 0
-already_exist_idx = 0
+# already_exist_idx = 0
 error_occured_idx = 0
 in_write_idx = 0
 
@@ -100,9 +100,9 @@ for name_series in cods:
             continue
 
         # 이미 post가 존재할 경우 넘어감!
-        if post_name in file_paths:
-            already_exist_idx += 1
-            continue
+        # if post_name in file_paths:
+        #     already_exist_idx += 1
+        #     continue
 
         tag_text = name_category
         if file_path.endswith('.ipynb'):
@@ -131,6 +131,11 @@ for name_series in cods:
                 tag_text += ', python'
         if name_category == 'web':
             tag_text += ', html'
+        if name_category == 'dsa':
+            tag_text += ', algorithm'
+        if 'algorithm' in name_series.lower():
+            if 'algorithm' not in tag_text:
+                tag_text += ', algorithm'
 
         if file_path.endswith('.ipynb'):
             new_file_name += '.ipynb'
@@ -379,6 +384,6 @@ for name_series in cods:
 shutil.rmtree(temp_path)
 
 print('processed: ', processed_idx)
-print('already exist: ', already_exist_idx)
+# print('already exist: ', already_exist_idx)
 print('error occured: ', error_occured_idx)
 print('in writing: ', in_write_idx)
