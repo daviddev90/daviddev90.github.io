@@ -162,7 +162,7 @@ for name_series in cods:
                         "layout: single\n",
                         f'title: "[{name_series_title}]{name_doc_title}"\n',
                         f"categories: {name_category}\n",
-                        f"tag: {tag_text}\n",
+                        f"tag: [{tag_text}]\n",
                         "toc: true\n",
                         "author_profile: false\n",
                         "typora-root-url: ../\n",
