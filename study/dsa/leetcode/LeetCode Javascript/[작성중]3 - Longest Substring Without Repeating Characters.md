@@ -35,34 +35,32 @@ Notice that the answer must be a substring, "pwke" is a subsequence and not a su
 
 - `s` consists of English letters, digits, symbols, and spaces.
 
-  
-
-## Solve 
+## Solve
 
 ### Attempt 1 (Failed)
 
 #### My Solution
 
-I tried not to loop more than once. 
+I tried not to loop more than once.
 But I had to use the 'indexOf()' method, so the time complexity is still $O(n^2)$.
 
 Here is the code I used:
 
 ```javascript
-const lengthOfLongestSubstring = function(s) {
-    let max = 0;
-    for (let i = 0; i < s.length; i++) {
-        const target = s[i];
-        let len = s.indexOf(target, i + 1) - i;
+const lengthOfLongestSubstring = function (s) {
+  let max = 0;
+  for (let i = 0; i < s.length; i++) {
+    const target = s[i];
+    let len = s.indexOf(target, i + 1) - i;
 
-        if (max < len){
-            max = len;
-        }
+    if (max < len) {
+      max = len;
     }
-    if(max === 0){
-        return s.length;
-    }
-    return max;
+  }
+  if (max === 0) {
+    return s.length;
+  }
+  return max;
 };
 ```
 
@@ -73,18 +71,16 @@ This is what I thought:
 3. If no repeating characters are found, the length of 's' (input) is returned.
 
 ```javascript
-if(max === 0){
-    return s.length;
+if (max === 0) {
+  return s.length;
 }
 ```
 
 I added the above because I met cases like " " and ""
 
-
-
 #### Result
 
-Unfortunately, my solution was incorrect. 
+Unfortunately, my solution was incorrect.
 My code failed in this simple case, Indicating that I need to revisit my approach.
 
 ![image-20230801132735595](../../../images/typora/image-20230801132735595.png)

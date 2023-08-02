@@ -2,7 +2,7 @@
 layout: single
 title: "[algorithm]Sliding Window"
 categories: dsa
-tag: [[algorithm, data structure, dsa]]
+tag: [[dsa, algorithm, data structure]]
 toc: true
 author_profile: false
 typora-root-url: /images/typora

@@ -19,7 +19,7 @@ def _generate_convention_name(root_path, file_name, category_sub):
 
 
 def _generate_href_text(category_main, category_sub, file_name, ext):
-    _href = category_main + '/' + category_sub + '~' + file_name
+    _href = "/" + category_main + '/' + category_sub + '~' + file_name
     _href = _href.replace(' ', '_')
     _href = _href.replace('.' + ext, '')
 
