@@ -2,7 +2,7 @@
 layout: single
 title: "[LeetCode Javascript]2 - Add Two Numbers"
 categories: dsa
-tag: [[javascript, data structure, algorithm, dsa]]
+tag: [[algorithm, javascript, data structure, dsa]]
 toc: true
 author_profile: false
 typora-root-url: /images/typora
@@ -10,7 +10,7 @@ sidebar:
   nav: "counts"
 ---
 
-<nav class="cods"><h2>LeetCode Javascript posts</h2><ol><li><a href="/dsa/2023-08-01-dsa_LeetCode_Javascript~1_-_Two_Sum"></a>1 - Two Sum</li><li><p>(current) 2 - Add Two Numbers</p></li><li><a href="/dsa/2023-08-01-dsa_LeetCode_Javascript~3_-_Longest_Substring_Without_Repeating_Characters_작성중"></a>3 - Longest Substring Without Repeating Characters 작성중</li></ol></nav>
+<nav class="cods"><h2>LeetCode Javascript posts</h2><ol><li><a href="dsa/LeetCode_Javascript~1_-_Two_Sum">1 - Two Sum</a></li><li><p>(current) 2 - Add Two Numbers</p></li><li><a href="dsa/LeetCode_Javascript~3_-_Longest_Substring_Without_Repeating_Characters_작성중">3 - Longest Substring Without Repeating Characters 작성중</a></li></ol></nav>
 
 ## Problem
 

@@ -3,16 +3,27 @@ from datetime import datetime
 input_path = './study/'
 
 
-def _generate_convention_name(root_path, file_name, category_main, category_sub):
-    _post_convention_name = file_name
-    _post_convention_name = category_main + '_' + \
-        category_sub + '~' + _post_convention_name
-    _post_convention_name = _post_convention_name.replace(' ', '_')
-    created_date = datetime.fromtimestamp(
+def _generate_create_date_text(root_path, file_name):
+    _date = datetime.fromtimestamp(
         os.path.getctime(root_path + '/' + file_name))
-    created_date_str = created_date.strftime('%Y-%m-%d-')
-    _post_convention_name = created_date_str + _post_convention_name
-    return _post_convention_name
+    _text = _date.strftime('%Y-%m-%d-')
+    return _text
+
+
+def _generate_convention_name(root_path, file_name, category_sub):
+    _created_date_text = _generate_create_date_text(root_path, file_name)
+    _name = category_sub + '~' + file_name
+    _name = _name.replace(' ', '_')
+    _name = _created_date_text + _name
+    return _name
+
+
+def _generate_href_text(category_main, category_sub, file_name, ext):
+    _href = category_main + '/' + category_sub + '~' + file_name
+    _href = _href.replace(' ', '_')
+    _href = _href.replace('.' + ext, '')
+
+    return _href
 
 
 def _generate_tag_text(category_main, category_sub, file_name):
@@ -79,7 +90,7 @@ def _generate_post_series_htmls(files_info):
             if current_title == s_title:
                 series_html += f'<li><p>(current) {current_title}</p></li>'
             else:
-                series_html += f'<li><a href="{href}"></a>{s_title}</li>'
+                series_html += f'<li><a href="{href}">{s_title}</a></li>'
 
         series_html += '</ol></nav>\n\n'
 
@@ -105,16 +116,16 @@ def get_files_data():
             if '[작성중]' in file_name:
                 continue
 
+            ext = file_name.split('.')[-1]
+            href_text = _generate_href_text(
+                category_main, category_sub, file_name, ext)
+
             # github blog 파일명 규칙에 맞게 변경
             _post_convention_name = _generate_convention_name(
-                root_path, file_name, category_main, category_sub)
+                root_path, file_name, category_sub)
             # 태그 텍스트 생성
             tag_text = _generate_tag_text(
                 category_main, category_sub, file_name)
-
-            ext = file_name.split('.')[-1]
-            href = f'/{category_main}/{_post_convention_name}'
-            href = href.replace('.' + ext, '')
 
             files_info.append({
                 'category_main': category_main,
@@ -122,7 +133,7 @@ def get_files_data():
                 'file_name': file_name,
                 '_post_convention_name': _post_convention_name,
                 'tag_text': tag_text,
-                'href': href,
+                'href': href_text,
                 # 윈도우와 리눅스(맥)의 경로 구분자가 다르기 때문에 아래가 필요
                 'full_path': os.path.join(root_path, file_name),
                 'ext': ext,
