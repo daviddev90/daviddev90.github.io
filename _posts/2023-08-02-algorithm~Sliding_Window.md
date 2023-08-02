@@ -5,7 +5,7 @@ categories: dsa
 tag: [[dsa, algorithm, data structure]]
 toc: true
 author_profile: false
-typora-root-url: /images/typora
+typora-root-url: ../
 sidebar:
   nav: "counts"
 ---

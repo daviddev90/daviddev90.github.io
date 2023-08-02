@@ -5,7 +5,7 @@ categories: dsa
 tag: [[dsa, javascript, algorithm, data structure]]
 toc: true
 author_profile: false
-typora-root-url: /images/typora
+typora-root-url: ../
 sidebar:
   nav: "counts"
 ---
@@ -110,6 +110,6 @@ let addTwoNumbers = function(l1, l2) {
 
 #### Result
 
-![image-20230731205751610](/images/typora/images/typora/images/typoraimages/typora/image-20230731205751610.png)
+![image-20230731205751610](/images/typora/image-20230731205751610.png)
 
 The results were very good, but I wasn't very happy because this isn't a code I wrote on my own.

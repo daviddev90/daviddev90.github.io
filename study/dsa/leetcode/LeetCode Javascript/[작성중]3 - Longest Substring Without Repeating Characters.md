@@ -83,7 +83,7 @@ I added the above because I met cases like " " and ""
 Unfortunately, my solution was incorrect.
 My code failed in this simple case, Indicating that I need to revisit my approach.
 
-![image-20230801132735595](../../../images/typora/image-20230801132735595.png)
+![image-20230801132735595](../../../../images/typora/image-20230801132735595.png)
 
 ### Attempt 2 (Sliding Window)
 

@@ -5,7 +5,7 @@ categories: dsa
 tag: [[dsa, javascript, algorithm, data structure]]
 toc: true
 author_profile: false
-typora-root-url: /images/typora
+typora-root-url: ../
 sidebar:
   nav: "counts"
 ---
@@ -93,7 +93,7 @@ let twoSum = function(nums, target) {
 
 #### Result
 
-![0001-first-result](/images/typora/images/typora/images/typoraimages/typora/0001-first-result.png)
+![0001-first-result](/images/typora/0001-first-result.png)
 
 Ok. that's not good.
 My code was too slow and needed improvement.
@@ -153,7 +153,7 @@ let twoSum = function(nums, target) {
 
 #### Result
 
-![0001-second-result](/images/typora/images/typora/images/typoraimages/typora/0001-second-result.png)
+![0001-second-result](/images/typora/0001-second-result.png)
 
 #### What I learned from this attempt
 
