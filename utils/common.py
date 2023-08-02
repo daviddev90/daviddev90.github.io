@@ -56,7 +56,11 @@ def _generate_tag_text(category_main, category_sub, file_name):
         if lang in concat_name:
             tag_set.add(lang)
 
-    tag_text = "[" + ", ".join(str(elem) for elem in tag_set) + "]"
+    tag_list = list(tag_set)
+    tag_list.sort()
+
+    tag_text = "[" + ", ".join(str(elem) for elem in tag_list) + "]"
+
     return tag_text
 
 

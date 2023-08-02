@@ -12,7 +12,7 @@ def add(file):
         "layout: single\n" \
         f'title: "[{category_sub}]{file_title}"\n' \
         f'categories: {category_main}\n' \
-        f'tag: [{tag_text}]\n' \
+        f'tag: {tag_text}\n' \
         'toc: true\n' \
         'author_profile: false\n' \
         'typora-root-url: ../\n' \

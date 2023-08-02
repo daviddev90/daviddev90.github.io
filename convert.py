@@ -34,15 +34,7 @@ for file in files_info:
         md_text = add_layout(file)
         with io.open(file['full_path'], 'r', encoding='utf-8') as f:
             md_text += f.read()
-        md_text = md_text.replace(
-            '../../../../../../images/typora', '/images/typora')
-        md_text = md_text.replace(
-            '../../../../../images/typora', '/images/typora')
-        md_text = md_text.replace(
-            '../../../../images/typora', '/images/typora')
-        md_text = md_text.replace('../../../images/typora', '/images/typora')
-        md_text = md_text.replace('../../images/typora', '/images/typora')
-        md_text = md_text.replace('../images/typora', '/images/typora')
+        md_text = re.sub(r'(\.\./)+images/typora', '/images/typora', md_text)
 
     # 파일명 규칙에 맞게 변경
     file_name = file['_post_convention_name']

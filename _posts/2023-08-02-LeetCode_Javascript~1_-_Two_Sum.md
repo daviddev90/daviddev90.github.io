@@ -2,7 +2,7 @@
 layout: single
 title: "[LeetCode Javascript]1 - Two Sum"
 categories: dsa
-tag: [[dsa, javascript, algorithm, data structure]]
+tag: [algorithm, data structure, dsa, javascript]
 toc: true
 author_profile: false
 typora-root-url: ../
