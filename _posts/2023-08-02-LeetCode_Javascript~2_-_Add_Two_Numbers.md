@@ -1,3 +1,17 @@
+---
+layout: single
+title: "[LeetCode Javascript]2 - Add Two Numbers"
+categories: dsa
+tag: [algorithm, data structure, dsa, javascript]
+toc: true
+author_profile: false
+typora-root-url: ../
+sidebar:
+  nav: "counts"
+---
+
+<nav class="cods"><h2>LeetCode Javascript posts</h2><ol><li><a href="/dsa/LeetCode_Javascript~1_-_Two_Sum">1 - Two Sum</a></li><li><p>(current) 2 - Add Two Numbers</p></li><li><a href="/dsa/LeetCode_Javascript~3_-_Longest_Substring_Without_Repeating_Characters">3 - Longest Substring Without Repeating Characters</a></li></ol></nav>
+
 ## Problem
 
 You are given two **non-empty** linked lists representing two non-negative integers. The digits are stored in **reverse order**, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
@@ -84,4 +98,4 @@ let addTwoNumbers = function(l1, l2) {
 };
 ```
 
-![image-20230731205751610](../../../../images/typora/image-20230731205751610.png)
+![image-20230731205751610](/images/typora/image-20230731205751610.png)

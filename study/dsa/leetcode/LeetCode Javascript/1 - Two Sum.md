@@ -1,20 +1,8 @@
-As a six-year front-end developer, I had never studied data structures or algorithms.
-Yes, you can blame me.
-
-While studying machine learning, I felt I needed to know about this topic(data structures, algorithms, and so on).
-
-I decided to tackle LeetCode for the first time, starting with problem number one. 
-At first glance, I thought, "This looks easy."
-
-And now I reveal how stupid I was.
-
-
-
 ## Problem
 
 Input: an array of integers `nums` and an integer `target`.
 
-return *indices of the two numbers such that they add up to `target`*.
+return *indices of the two numbers such that they add up to the `target`*.
 
 **Example 1:**
 
@@ -47,14 +35,9 @@ Output: [0,1]
 
 
 
-## Solve 
+## Solution 
 
-### Attempt 1
-
-#### My Solution
-
-I wrote the code without thinking.
-I just used nested loop syntax. (thinking 'That is easy')
+### My Original Solution
 
 ``` javascript
 /**
@@ -77,16 +60,12 @@ let twoSum = function(nums, target) {
 };
 ```
 
-#### Result
-
-![0001-first-result](../../../images/typora/0001-first-result.png)
+![0001-first-result](../../../../images/typora/0001-first-result.png)
 
 Ok. that's not good.
 My code was too slow and needed improvement.
 
-
-
-#### What I learned from this attempt
+### What I learned from this attempt
 
 When I checked the editorial, I informed the expected answer and the problem.
 They say my approach is Brute Force Approach. 
@@ -105,15 +84,13 @@ The brute force approach is simple. Loop through each element xx*x* and find if 
 - Space complexity: $O(1)$.
   The space required does not depend on the size of the input array, so only constant space is used.
 
-### Attempt 2
+### Improved Solution
 
-#### My Solution
+I improved my code as follows, referring to Python and Java answers provided by the editorial description.
 
-I wrote the javascript code as follows, referring to Python and Java answers provided by the editorial description.
+The key point is to use 'Map' to loop just once.
 
-The key point is to use Map, in order to loop just once.
-
-As the code loops through the 'nums' array, it calculates the difference between the current number and the target. If this difference is already present in the Map, it returns the indices of the current number and the mapped value, otherwise, the current number and its index are stored in the Map for future iterations.
+As the code loops through the 'nums' array, it calculates the difference between the current number and the target. If this difference is already present in the Map, it returns the indices of the current number and the mapped value. Otherwise, the current number and its index are stored in the Map for future iterations.
 
 ``` javascript
 /**
@@ -137,16 +114,10 @@ let twoSum = function(nums, target) {
 };
 ```
 
-#### Result
-
-![0001-second-result](../../../images/typora/0001-second-result.png)
-
-#### What I learned from this attempt
+![0001-second-result](../../../../images/typora/0001-second-result.png)
 
 Wow. The revised code shows a significant improvement in runtime—it's nearly halved. 
 Although there's a 4% increase in memory usage, the speed enhancement justifies this trade-off.
-
-
 
 
 
