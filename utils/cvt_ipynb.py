@@ -1,11 +1,3 @@
-# 'category_main': category_main,
-# 'category_sub': category_sub,
-# 'file_name': file_name,
-# '_post_convention_name': _post_convention_name,
-# 'tag_text': tag_text,
-# 'temp_path': temp_path + _post_convention_name,
-# 'full_path': root_path + '/' + file_name,
-# 'ext': file_name.split('.')[-1]
 import os
 import base64
 
@@ -79,7 +71,7 @@ def convert_ipynb(data):
                         texts = output['text']
                         md_text += '\n<div class="op_wrap">'
                         for text in texts:
-                            if text.find('Users/shindongwon') == -1:
+                            if 'Users/shindongwon' not in text:
                                 md_text += '<op>' + text + '</op><br>'
                         md_text += '</div>\n'
 
@@ -89,7 +81,7 @@ def convert_ipynb(data):
                             texts = data['text/plain']
                             md_text += '\n<div class="op_wrap">'
                             for text in texts:
-                                if text.find('Users/shindongwon') == -1:
+                                if 'Users/shindongwon' not in text:
                                     md_text += '<op>' + text + '</op>'
                             md_text += '</div>\n\n'
 
