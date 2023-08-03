@@ -10,7 +10,7 @@ sidebar:
   nav: "counts"
 ---
 
-<nav class="cods"><h2>LeetCode Javascript posts</h2><ol><li><a href="/dsa/LeetCode_Javascript~1_-_Two_Sum">1 - Two Sum</a></li><li><a href="/dsa/LeetCode_Javascript~2_-_Add_Two_Numbers">2 - Add Two Numbers</a></li><li><p>(current) 3 - Longest Substring Without Repeating Characters</p></li></ol></nav>
+<nav class="cods"><h2>LeetCode Javascript posts</h2><ol><li><a href="/dsa/LeetCode_Javascript~1_-_Two_Sum">1 - Two Sum</a></li><li><a href="/dsa/LeetCode_Javascript~2_-_Add_Two_Numbers">2 - Add Two Numbers</a></li><li><p>(current) 3 - Longest Substring Without Repeating Characters</p></li><li><a href="/dsa/LeetCode_Javascript~4_-_Median_of_Two_Sorted_Arrays">4 - Median of Two Sorted Arrays</a></li></ol></nav>
 
 ## Problem
 
@@ -51,7 +51,9 @@ Notice that the answer must be a substring, "pwke" is a subsequence and not a su
 
 ## Solution
 
-### My Original Solution using Sliding Window
+<p style="text-align: center;">Note: Both Solution use Sliding Window</p>
+
+### My Original Solution
 
 This is the Sliding Window Algorithm. But, the Time complexity is $O(n^2)$.
 
@@ -97,7 +99,9 @@ This is quite fast and simple code.
 
 
 
-### Solution using Sliding Window, Using Map to reduce time Complexity.
+### Improved Solution, Using Map.
+
+This solution use map to enhance Time Complexity.
 
 https://leetcode.com/problems/longest-substring-without-repeating-characters/submissions/
 

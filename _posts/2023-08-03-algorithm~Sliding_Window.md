@@ -10,7 +10,7 @@ sidebar:
   nav: "counts"
 ---
 
-<nav class="cods"><h2>algorithm posts</h2><ol><li><p>(current) Sliding Window</p></li></ol></nav>
+<nav class="cods"><h2>algorithm posts</h2><ol><li><a href="/dsa/algorithm~Binary_Search">Binary Search</a></li><li><p>(current) Sliding Window</p></li></ol></nav>
 
 ## What is a Sliding Window?
 

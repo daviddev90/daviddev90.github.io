@@ -37,7 +37,9 @@ Notice that the answer must be a substring, "pwke" is a subsequence and not a su
 
 ## Solution
 
-### My Original Solution using Sliding Window
+<p style="text-align: center;">Note: Both Solution use Sliding Window</p>
+
+### My Original Solution
 
 This is the Sliding Window Algorithm. But, the Time complexity is $O(n^2)$.
 
@@ -83,7 +85,9 @@ This is quite fast and simple code.
 
 
 
-### Solution using Sliding Window, Using Map to reduce time Complexity.
+### Improved Solution, Using Map.
+
+This solution use map to enhance Time Complexity.
 
 https://leetcode.com/problems/longest-substring-without-repeating-characters/submissions/
 
