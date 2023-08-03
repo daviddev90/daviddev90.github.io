@@ -172,7 +172,7 @@ If this condition is met, it means all the elements on the left side of the part
 
 #### 4. Return median
 
-```ja
+```javascript
 if ((x + y) & 1) {
     return Math.max(maxLeftX, maxLeftY);
 } else {
@@ -184,13 +184,10 @@ Once the correct partition is found, the median is calculated and returned. If t
 
 #### 5. Adjust the search space
 
-```javascr
+```javascript
 } else if (maxLeftX > minRightY) {
     end = partitionX - 1;
 } else {
     start = partitionX + 1;
 }
 ```
-
-
-## 
