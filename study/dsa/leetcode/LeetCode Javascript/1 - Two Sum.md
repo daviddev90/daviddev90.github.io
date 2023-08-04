@@ -1,8 +1,10 @@
+2023-07-27
+
 ## Problem
 
 Input: an array of integers `nums` and an integer `target`.
 
-return *indices of the two numbers such that they add up to the `target`*.
+return _indices of the two numbers such that they add up to the `target`_.
 
 **Example 1:**
 
@@ -15,15 +17,15 @@ Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
 **Example 2:**
 
 ```javascript
-Input: nums = [3,2,4], target = 6
-Output: [1,2]
+Input: (nums = [3, 2, 4]), (target = 6);
+Output: [1, 2];
 ```
 
 **Example 3:**
 
 ```javascript
-Input: nums = [3,3], target = 6
-Output: [0,1]
+Input: (nums = [3, 3]), (target = 6);
+Output: [0, 1];
 ```
 
 **Constraints:**
@@ -33,30 +35,28 @@ Output: [0,1]
 - `-109 <= target <= 109`
 - **Only one valid answer exists**
 
-
-
-## Solution 
+## Solution
 
 ### My Original Solution
 
-``` javascript
+```javascript
 /**
  * @param {number[]} nums
  * @param {number} target
  * @return {number[]}
  */
-let twoSum = function(nums, target) {
-    const max = nums.length
+let twoSum = function (nums, target) {
+  const max = nums.length;
 
-    for (let i = 0; i < max; i++){
-        const num1 = nums[i];
-        for (let j = i + 1; j < max; j++){
-            const num2 = nums[j]
-            if (num1 + num2 === target){
-                return [i, j]
-            }
-        }
+  for (let i = 0; i < max; i++) {
+    const num1 = nums[i];
+    for (let j = i + 1; j < max; j++) {
+      const num2 = nums[j];
+      if (num1 + num2 === target) {
+        return [i, j];
+      }
     }
+  }
 };
 ```
 
@@ -68,7 +68,7 @@ My code was too slow and needed improvement.
 ### What I learned from this attempt
 
 When I checked the editorial, I informed the expected answer and the problem.
-They say my approach is Brute Force Approach. 
+They say my approach is Brute Force Approach.
 Which means it's so brute. And they can't see any sign of thought.
 
 They were providing answers in Java and Python. This is the Python code they provide.
@@ -92,34 +92,32 @@ The key point is to use 'Map' to loop just once.
 
 As the code loops through the 'nums' array, it calculates the difference between the current number and the target. If this difference is already present in the Map, it returns the indices of the current number and the mapped value. Otherwise, the current number and its index are stored in the Map for future iterations.
 
-``` javascript
+```javascript
 /**
  * @param {number[]} nums
  * @param {number} target
  * @return {number[]}
  */
-let twoSum = function(nums, target) {
-    const max = nums.length;
-    let map = new Map();
-        
-    for(let i = 0; i < nums.length; i ++) {
-        const num = nums[i];
-        const diff = target - num;
-        if(map.has(diff)) {
-            return [map.get(diff), i];
-        } else {
-            map.set(num, i);
-        }
+let twoSum = function (nums, target) {
+  const max = nums.length;
+  let map = new Map();
+
+  for (let i = 0; i < nums.length; i++) {
+    const num = nums[i];
+    const diff = target - num;
+    if (map.has(diff)) {
+      return [map.get(diff), i];
+    } else {
+      map.set(num, i);
     }
+  }
 };
 ```
 
 ![0001-second-result](../../../../images/typora/0001-second-result.png)
 
-Wow. The revised code shows a significant improvement in runtime—it's nearly halved. 
+Wow. The revised code shows a significant improvement in runtime—it's nearly halved.
 Although there's a 4% increase in memory usage, the speed enhancement justifies this trade-off.
-
-
 
 ## What I Learned
 
@@ -139,7 +137,7 @@ The computational complexity that describes the amount of computational time tak
 
 I looped through nums. And inside the loop, I looped again. So there is two nested loops in the function.
 
-In the code, the outer loop runs 'n' times where 'n' is the length of the 'nums' array. For each iteration of the outer loop, the inner loop also runs 'n' times (technically, it's less than 'n' times because it starts from 'i + 1', but when we discuss time complexity, we simplify to the highest order of 'n'). 
+In the code, the outer loop runs 'n' times where 'n' is the length of the 'nums' array. For each iteration of the outer loop, the inner loop also runs 'n' times (technically, it's less than 'n' times because it starts from 'i + 1', but when we discuss time complexity, we simplify to the highest order of 'n').
 
 So, for each increment in input size, the running time of the algorithm will increase by a factor proportional to the square of 'n'. This indicates that the algorithm may be inefficient for large input sizes.
 

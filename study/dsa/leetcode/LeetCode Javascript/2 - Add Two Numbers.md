@@ -1,3 +1,5 @@
+2023-07-28
+
 ## Problem
 
 You are given two **non-empty** linked lists representing two non-negative integers. The digits are stored in **reverse order**, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
@@ -26,8 +28,6 @@ Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
 Output: [8,9,9,9,0,0,0,1]
 ```
 
-
-
 ## Solution
 
 Shamefully, I thought, 'Wow, is there a "ListNode" type in javascript? that's new to me.'
@@ -55,32 +55,32 @@ I tried to submit my own solution, but I ended up writing code almost the same a
 Anyway, my solution(which is already the perfect solution because I referred to the best solution) is this:
 
 ```javascript
-let addTwoNumbers = function(l1, l2) {
-    let sum = 0;
-    const answer = new ListNode(0);
-    let current = answer;
+let addTwoNumbers = function (l1, l2) {
+  let sum = 0;
+  const answer = new ListNode(0);
+  let current = answer;
 
-    while(l1 || l2 || sum > 0){
-        if (l1){
-            sum += l1.val;
-            l1 = l1.next;
-        }
-        if (l2){
-            sum += l2.val;
-            l2 = l2.next;
-        }
-        if (sum >= 10){
-            current.next = new ListNode(sum - 10);
-            current = current.next
-            sum = 1;
-        } else{
-            current.next = new ListNode(sum);
-            current = current.next
-            sum = 0;
-        }
+  while (l1 || l2 || sum > 0) {
+    if (l1) {
+      sum += l1.val;
+      l1 = l1.next;
     }
+    if (l2) {
+      sum += l2.val;
+      l2 = l2.next;
+    }
+    if (sum >= 10) {
+      current.next = new ListNode(sum - 10);
+      current = current.next;
+      sum = 1;
+    } else {
+      current.next = new ListNode(sum);
+      current = current.next;
+      sum = 0;
+    }
+  }
 
-    return answer.next;
+  return answer.next;
 };
 ```
 

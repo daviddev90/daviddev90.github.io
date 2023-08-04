@@ -15,7 +15,7 @@ convert_ipynb = utils.cvt_ipynb.convert_ipynb
 add_layout = utils.add_layout_to_md.add
 
 input_path = './study/'
-output_path = './_posts_test/'
+output_path = './_posts/'
 
 # [작성중] 표시가 없는 ipynb, md파일만 가져옴
 info_data = get_files_data()

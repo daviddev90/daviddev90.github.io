@@ -10,7 +10,8 @@ sidebar:
   nav: "counts"
 ---
 
-<nav class="cods"><h2>LeetCode Javascript posts</h2><ol><li><a href="/dsa/LeetCode_Javascript~1_-_Two_Sum">1 - Two Sum</a></li><li><p>(current) 2 - Add Two Numbers</p></li><li><a href="/dsa/LeetCode_Javascript~3_-_Longest_Substring_Without_Repeating_Characters">3 - Longest Substring Without Repeating Characters</a></li><li><a href="/dsa/LeetCode_Javascript~4_-_Median_of_Two_Sorted_Arrays">4 - Median of Two Sorted Arrays</a></li></ol></nav>
+<nav class="cods"><h2>LeetCode Javascript posts</h2><ol><li><a href="/dsa/LeetCode_Javascript~1_-_Two_Sum">1 - Two Sum</a></li><li><p>2 - Add Two Numbers (current)</p></li><li><a href="/dsa/LeetCode_Javascript~3_-_Longest_Substring_Without_Repeating_Characters">3 - Longest Substring Without Repeating Characters</a></li><li><a href="/dsa/LeetCode_Javascript~4_-_Median_of_Two_Sorted_Arrays">4 - Median of Two Sorted Arrays</a></li></ol></nav>
+
 
 ## Problem
 
@@ -40,8 +41,6 @@ Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
 Output: [8,9,9,9,0,0,0,1]
 ```
 
-
-
 ## Solution
 
 Shamefully, I thought, 'Wow, is there a "ListNode" type in javascript? that's new to me.'
@@ -69,32 +68,32 @@ I tried to submit my own solution, but I ended up writing code almost the same a
 Anyway, my solution(which is already the perfect solution because I referred to the best solution) is this:
 
 ```javascript
-let addTwoNumbers = function(l1, l2) {
-    let sum = 0;
-    const answer = new ListNode(0);
-    let current = answer;
+let addTwoNumbers = function (l1, l2) {
+  let sum = 0;
+  const answer = new ListNode(0);
+  let current = answer;
 
-    while(l1 || l2 || sum > 0){
-        if (l1){
-            sum += l1.val;
-            l1 = l1.next;
-        }
-        if (l2){
-            sum += l2.val;
-            l2 = l2.next;
-        }
-        if (sum >= 10){
-            current.next = new ListNode(sum - 10);
-            current = current.next
-            sum = 1;
-        } else{
-            current.next = new ListNode(sum);
-            current = current.next
-            sum = 0;
-        }
+  while (l1 || l2 || sum > 0) {
+    if (l1) {
+      sum += l1.val;
+      l1 = l1.next;
     }
+    if (l2) {
+      sum += l2.val;
+      l2 = l2.next;
+    }
+    if (sum >= 10) {
+      current.next = new ListNode(sum - 10);
+      current = current.next;
+      sum = 1;
+    } else {
+      current.next = new ListNode(sum);
+      current = current.next;
+      sum = 0;
+    }
+  }
 
-    return answer.next;
+  return answer.next;
 };
 ```
 

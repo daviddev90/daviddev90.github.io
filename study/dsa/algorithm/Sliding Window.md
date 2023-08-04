@@ -1,10 +1,12 @@
+2023-08-02
+
 ## What is a Sliding Window?
 
 ### Before Start
 
 Recently, I was solving problems on LeetCode and came across one that required the 'sliding window' algorithm.
 
-This post shares my understanding of the sliding window algorithm. But, as I'm still learning, there might be mistakes. If you find any, I'd appreciate your feedback. 
+This post shares my understanding of the sliding window algorithm. But, as I'm still learning, there might be mistakes. If you find any, I'd appreciate your feedback.
 
 ### Definition
 
@@ -27,7 +29,7 @@ Problem: Given an array of positive numbers and a positive number ‘k’, find 
 
 #### Without Sliding Window
 
-Without sliding window, you may have to calculate the sum of each subarray of size 'k', resulting in O(N*k) time complexity. 
+Without sliding window, you may have to calculate the sum of each subarray of size 'k', resulting in O(N\*k) time complexity.
 
 ```python
 def max_sub_array_of_size_k(k, arr):
@@ -110,4 +112,3 @@ def longest_substring_with_k_distinct(str, k):
         max_length = max(max_length, window_end-window_start + 1)
     return max_length
 ```
-

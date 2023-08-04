@@ -1,3 +1,5 @@
+2023-07-29
+
 ## Problem
 
 https://leetcode.com/problems/longest-substring-without-repeating-characters/
@@ -31,7 +33,7 @@ Notice that the answer must be a substring, "pwke" is a subsequence and not a su
 
 **Constraints:**
 
-- **0 <= s.length <= 5 * 104**
+- **0 <= s.length <= 5 \* 104**
 
 - **s** consists of English letters, digits, symbols, and spaces.
 
@@ -43,7 +45,7 @@ Notice that the answer must be a substring, "pwke" is a subsequence and not a su
 
 This is the Sliding Window Algorithm. But, the Time complexity is $O(n^2)$.
 
-It's because I used Array.includes(), Array.indexOf() method And their time complexity of these methods is already *O*(*n*).
+It's because I used Array.includes(), Array.indexOf() method And their time complexity of these methods is already _O_(_n_).
 
 And this solution already loops through all characters with Sliding Window Algorithm.
 Therefore, the overall time complexity becomes $O(n^2)$.
@@ -51,22 +53,22 @@ Therefore, the overall time complexity becomes $O(n^2)$.
 Here is the code I used:
 
 ```javascript
-const lengthOfLongestSubstring = function(s) {
-    let streak = 0;
-    let arr = [];
+const lengthOfLongestSubstring = function (s) {
+  let streak = 0;
+  let arr = [];
 
-    for (let i = 0; i < s.length; i++){
-        const c = s[i]
-        if (arr.includes(c)){
-            arr = arr.slice(arr.indexOf(c) + 1)
-        } 
-        arr.push(c)
-        streak = Math.max(streak, arr.length)
+  for (let i = 0; i < s.length; i++) {
+    const c = s[i];
+    if (arr.includes(c)) {
+      arr = arr.slice(arr.indexOf(c) + 1);
     }
-    if (streak === 0){
-        return s.length
-    }
-    return streak;
+    arr.push(c);
+    streak = Math.max(streak, arr.length);
+  }
+  if (streak === 0) {
+    return s.length;
+  }
+  return streak;
 };
 ```
 
@@ -74,16 +76,14 @@ const lengthOfLongestSubstring = function(s) {
 
 This is quite fast and simple code.
 
-1. I initialize two variables: 
+1. I initialize two variables:
 
    **streak**: an integer to keep track of the maximum length of non-repeating character sequence found so far.
-   **arr**: an array to store the current sequence of non-repeating characters, 
+   **arr**: an array to store the current sequence of non-repeating characters,
 
 2. loop through characters, add to **arr**. and update **streak**
 3. If there is already the same character in **arr**, remove characters from the beginning up to and including the repeating character **c**, effectively starting a new sequence of non-repeating characters.
 4. I add the last condition(**streak** === 0) for s = " " case. The answer should be 1 in this case.
-
-
 
 ### Improved Solution, Using Map.
 
@@ -92,18 +92,18 @@ This solution use map to enhance Time Complexity.
 https://leetcode.com/problems/longest-substring-without-repeating-characters/submissions/
 
 ```javascript
-var lengthOfLongestSubstring = function(s) {
-    const seen = new Map();
-    let start = 0;
-    let maxLen = 0;
-    
-    for(let i = 0; i < s.length; i++) {
-        if(seen.has(s[i])) start = Math.max(seen.get(s[i]) + 1, start)
-        seen.set(s[i], i);
-        maxLen = Math.max(i - start + 1, maxLen);
-    } 
-    
-    return maxLen;  
+var lengthOfLongestSubstring = function (s) {
+  const seen = new Map();
+  let start = 0;
+  let maxLen = 0;
+
+  for (let i = 0; i < s.length; i++) {
+    if (seen.has(s[i])) start = Math.max(seen.get(s[i]) + 1, start);
+    seen.set(s[i], i);
+    maxLen = Math.max(i - start + 1, maxLen);
+  }
+
+  return maxLen;
 };
 ```
 
@@ -111,14 +111,13 @@ var lengthOfLongestSubstring = function(s) {
 
 This solution use Map(). And time complexity is $O(n)$.
 
-
 ## What I Learned
 
 The result was improved. But not much faster. So I asked to chatGPT.
 
 Summary of ChatGPT's answer:
 
-1. The input size is too small. 
+1. The input size is too small.
 2. Javascript Engine in the browser might be optimized with some method like **includes**.
 
 Below is the Full Answer:

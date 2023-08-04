@@ -1,3 +1,5 @@
+2023-07-21
+
 ### 사이킷런 설치
 
 sklearn으로 import하지만, 설치할 때는 scikit-learn이라는 풀네임으로 install 해줘야 한다는 점을 명심하자
