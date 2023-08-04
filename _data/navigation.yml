@@ -2,9 +2,9 @@
 main:
   - title: "Categories"
     url: /categories/
-  - title: "태그"
+  - title: "Tags"
     url: /tags/
-  - title: "검색"
+  - title: "Search"
     url: /search/
 
 docs:
