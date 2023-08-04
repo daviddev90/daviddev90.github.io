@@ -15,10 +15,17 @@ convert_ipynb = utils.cvt_ipynb.convert_ipynb
 add_layout = utils.add_layout_to_md.add
 
 input_path = './study/'
-output_path = './_posts/'
+output_path = './_posts_test/'
 
 # [작성중] 표시가 없는 ipynb, md파일만 가져옴
-files_info = get_files_data()
+info_data = get_files_data()
+files_info = info_data['files_info']
+count = info_data['count']
+errors = info_data['errors']
+
+print(count)
+
+
 for file in files_info:
 
     if file['ext'] == 'ipynb':
@@ -33,6 +40,7 @@ for file in files_info:
     if file['ext'] == 'md':
         md_text = add_layout(file)
         with io.open(file['full_path'], 'r', encoding='utf-8') as f:
+            meta = f.readline().strip()
             md_text += f.read()
         md_text = re.sub(r'(\.\./)+images/typora', '/images/typora', md_text)
 

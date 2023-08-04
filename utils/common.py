@@ -1,20 +1,12 @@
 import os
-from datetime import datetime
+import re
+import json
 input_path = './study/'
 
 
-def _generate_create_date_text(root_path, file_name):
-    _date = datetime.fromtimestamp(
-        os.path.getctime(root_path + '/' + file_name))
-    _text = _date.strftime('%Y-%m-%d-')
-    return _text
-
-
-def _generate_convention_name(root_path, file_name, category_sub):
-    _created_date_text = _generate_create_date_text(root_path, file_name)
-    _name = category_sub + '~' + file_name
+def _generate_convention_name(file_name, category_sub, date):
+    _name = date + '-' + category_sub + '~' + file_name
     _name = _name.replace(' ', '_')
-    _name = _created_date_text + _name
     return _name
 
 
@@ -92,7 +84,7 @@ def _generate_post_series_htmls(files_info):
             href = s['href']
 
             if current_title == s_title:
-                series_html += f'<li><p>(current) {current_title}</p></li>'
+                series_html += f'<li><p>{current_title} (current)</p></li>'
             else:
                 series_html += f'<li><a href="{href}">{s_title}</a></li>'
 
@@ -105,6 +97,15 @@ def _generate_post_series_htmls(files_info):
 
 def get_files_data():
     files_info = []
+
+    count = {
+        'ipynb': 0,
+        'md': 0,
+        'writing': 0,
+        'no_meta': 0,
+    }
+    errors = []
+
     for root_path, _, files in os.walk(input_path):
         folder_path = root_path.replace(input_path, '')
         # os.path.sep을 사용: 윈도우와 리눅스(맥)의 경로 구분자가 다르기 때문에
@@ -118,7 +119,44 @@ def get_files_data():
                 continue
 
             if '[작성중]' in file_name:
+                count['writing'] += 1
                 continue
+
+            full_path = os.path.join(root_path, file_name)
+
+            if file_name.endswith('.md'):
+                with open(full_path, 'r', encoding='utf-8') as f:
+                    # read first line
+                    meta = f.readline().strip()
+                    match = re.search(r'\d{4}-\d{2}-\d{2}', meta)
+
+                    if not match:
+                        count['no_meta'] += 1
+                        errors.append({
+                            'path': full_path,
+                            'text': 'no meta'
+                        })
+                        continue
+
+                date = match.group(0)
+                count['md'] += 1
+
+            if file_name.endswith('.ipynb'):
+                with open(full_path, 'r', encoding='utf-8') as f:
+                    notebook = json.load(f)
+                    meta = notebook['cells'][0]['source'][0].strip()
+                    match = re.search(r'\d{4}-\d{2}-\d{2}', meta)
+
+                    if not match:
+                        count['no_meta'] += 1
+                        errors.append({
+                            'path': full_path,
+                            'text': 'no meta'
+                        })
+                        continue
+
+                date = match.group(0)
+                count['ipynb'] += 1
 
             ext = file_name.split('.')[-1]
             href_text = _generate_href_text(
@@ -126,7 +164,7 @@ def get_files_data():
 
             # github blog 파일명 규칙에 맞게 변경
             _post_convention_name = _generate_convention_name(
-                root_path, file_name, category_sub)
+                file_name, category_sub, date)
             # 태그 텍스트 생성
             tag_text = _generate_tag_text(
                 category_main, category_sub, file_name)
@@ -139,11 +177,15 @@ def get_files_data():
                 'tag_text': tag_text,
                 'href': href_text,
                 # 윈도우와 리눅스(맥)의 경로 구분자가 다르기 때문에 아래가 필요
-                'full_path': os.path.join(root_path, file_name),
+                'full_path': full_path,
                 'ext': ext,
                 'post_title': file_name.replace('.' + ext, '')
             })
 
     files_info = _generate_post_series_htmls(files_info)
 
-    return files_info
+    return {
+        'files_info': files_info,
+        'count': count,
+        'errors': errors
+    }

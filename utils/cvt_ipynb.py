@@ -6,6 +6,8 @@ def convert_ipynb(data):
     notebook = data['notebook']
     file = data['file']
 
+    notebook['cells'].pop(0)
+
     category_main = file['category_main']
     category_sub = file['category_sub']
     file_name = file['file_name']

@@ -1,16 +1,18 @@
+2023-08-17
+
 ## What is Binary Search
 
 The algorithm checks the middle element to determine if it's greater than, less than, or equal to the value being searched for.
 
-- If it's equal, you've found your value. 
-- If it's less, you know the value must be in the upper half of the array. 
-- If it's greater, the value must be in the lower half of the array. 
+- If it's equal, you've found your value.
+- If it's less, you know the value must be in the upper half of the array.
+- If it's greater, the value must be in the lower half of the array.
 
 This process is repeated on the correct half of the array, essentially reducing the search space by half each time. This is why it's called a "binary" search. It's an efficient way to search for a value in a sorted array, with a time complexity of $O(log(n))$.
 
 ### Restrictions
 
-Binary search can only be used when the array or list is sorted. 
+Binary search can only be used when the array or list is sorted.
 If the data is not sorted, you would need to sort it first before using binary search, which can be expensive for large data sets.
 
 ### Benefits
@@ -31,21 +33,21 @@ The array is already sorted, and we want to find the target numer 7 in the array
 
 ```javascript
 function binarySearch(array, target) {
-    let start = 0;
-    let end = array.length - 1;
+  let start = 0;
+  let end = array.length - 1;
 
-    while (start <= end) {
-        let mid = Math.floor((start + end) / 2);
+  while (start <= end) {
+    let mid = Math.floor((start + end) / 2);
 
-        if (array[mid] === target) {
-            return mid;
-        } else if (array[mid] < target) {
-            start = mid + 1;
-        } else {
-            end = mid - 1;
-        }
+    if (array[mid] === target) {
+      return mid;
+    } else if (array[mid] < target) {
+      start = mid + 1;
+    } else {
+      end = mid - 1;
     }
-    return -1;
+  }
+  return -1;
 }
 ```
 
@@ -84,43 +86,43 @@ Explanation: merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5.
 ### Solution: Full Code
 
 ```javascript
-const findMedianSortedArrays = function(nums1, nums2) {
-    if (nums1.length > nums2.length) {
-        [nums1, nums2] = [nums2, nums1];
+const findMedianSortedArrays = function (nums1, nums2) {
+  if (nums1.length > nums2.length) {
+    [nums1, nums2] = [nums2, nums1];
+  }
+
+  let x = nums1.length;
+  let y = nums2.length;
+
+  let start = 0;
+  let end = x;
+
+  while (start <= end) {
+    let partitionX = (start + end) >> 1;
+    let partitionY = ((x + y + 1) >> 1) - partitionX;
+
+    let maxLeftX = partitionX === 0 ? -Infinity : nums1[partitionX - 1];
+    let minRightX = partitionX === x ? Infinity : nums1[partitionX];
+
+    let maxLeftY = partitionY === 0 ? -Infinity : nums2[partitionY - 1];
+    let minRightY = partitionY === y ? Infinity : nums2[partitionY];
+
+    if (maxLeftX <= minRightY && maxLeftY <= minRightX) {
+      if ((x + y) & 1) {
+        return Math.max(maxLeftX, maxLeftY);
+      } else {
+        return (
+          (Math.max(maxLeftX, maxLeftY) + Math.min(minRightX, minRightY)) / 2
+        );
+      }
+    } else if (maxLeftX > minRightY) {
+      end = partitionX - 1;
+    } else {
+      start = partitionX + 1;
     }
-    
-    let x = nums1.length;
-    let y = nums2.length;
-    
-    let start = 0;
-    let end = x;
-    
-    while (start <= end) {
-        let partitionX = (start + end) >> 1;
-        let partitionY = ((x + y + 1) >> 1) - partitionX;
-        
-        let maxLeftX = (partitionX === 0) ? -Infinity : nums1[partitionX - 1];
-        let minRightX = (partitionX === x) ? Infinity : nums1[partitionX];
-        
-        let maxLeftY = (partitionY === 0) ? -Infinity : nums2[partitionY - 1];
-        let minRightY = (partitionY === y) ? Infinity : nums2[partitionY];
-        
-        if (maxLeftX <= minRightY && maxLeftY <= minRightX) {
-            if ((x + y) & 1) {
-                return Math.max(maxLeftX, maxLeftY);
-            } else {
-                return (Math.max(maxLeftX, maxLeftY) + Math.min(minRightX, minRightY)) / 2;
-            }
-        } else if (maxLeftX > minRightY) {
-            end = partitionX - 1;
-        } else {
-            start = partitionX + 1;
-        }
-    }
+  }
 };
 ```
-
-
 
 ### Solution: Break Down
 
@@ -137,11 +139,11 @@ The binary search is performed in a `while` loop. The algorithm calculates `part
 #### 2. Define maxLeft, maxRight for X and Y
 
 ```javascript
-let maxLeftX = (partitionX === 0) ? -Infinity : nums1[partitionX - 1];
-        let minRightX = (partitionX === x) ? Infinity : nums1[partitionX];
-        
-        let maxLeftY = (partitionY === 0) ? -Infinity : nums2[partitionY - 1];
-        let minRightY = (partitionY === y) ? Infinity : nums2[partitionY];
+let maxLeftX = partitionX === 0 ? -Infinity : nums1[partitionX - 1];
+let minRightX = partitionX === x ? Infinity : nums1[partitionX];
+
+let maxLeftY = partitionY === 0 ? -Infinity : nums2[partitionY - 1];
+let minRightY = partitionY === y ? Infinity : nums2[partitionY];
 ```
 
 The `maxLeftX`, `minRightX`, `maxLeftY`, and `minRightY` variables represent the border elements of the partitions in `nums1` and `nums2`. If a partition has no elements on the left or right side, it uses `-Infinity` or `Infinity`, respectively, to allow comparisons to be performed correctly.
@@ -160,9 +162,9 @@ If this condition is met, it means all the elements on the left side of the part
 
 ```javascript
 if ((x + y) & 1) {
-    return Math.max(maxLeftX, maxLeftY);
+  return Math.max(maxLeftX, maxLeftY);
 } else {
-    return (Math.max(maxLeftX, maxLeftY) + Math.min(minRightX, minRightY)) / 2;
+  return (Math.max(maxLeftX, maxLeftY) + Math.min(minRightX, minRightY)) / 2;
 }
 ```
 

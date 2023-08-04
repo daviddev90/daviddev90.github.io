@@ -107,7 +107,7 @@ const findMedianSortedArrays = function(nums1, nums2) {
 };
 ```
 
-#### 
+![image-20230803202332062](../../../../images/typora/image-20230803202332062.png)
 
 ### Solution Break Down
 
