@@ -2,7 +2,7 @@
 
 ## Problem
 
-https://leetcode.com/problems/median-of-two-sorted-arrays/submissions/
+https://leetcode.com/problems/median-of-two-sorted-arrays/
 
 Given two sorted arrays `nums1` and `nums2` of size `s1` and `s2` respectively, return **the median** of the two sorted arrays.
 

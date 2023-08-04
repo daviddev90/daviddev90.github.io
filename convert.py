@@ -44,10 +44,9 @@ for file in files_info:
             md_text += f.read()
         md_text = re.sub(r'(\.\./)+images/typora', '/images/typora', md_text)
 
-    # 파일명 규칙에 맞게 변경
     file_name = file['_post_convention_name']
     ext = file['ext']
-    file_name = file_name.replace(ext, 'md')
-    # 파일 생성
+    file_name = file_name.replace('.' + ext, '.md')
+
     with io.open(output_path + file_name, 'w', encoding='utf-8') as f:
         f.write(md_text)
