@@ -1,6 +1,6 @@
 # main links
 main:
-  - title: "주제"
+  - title: "Categories"
     url: /categories/
   - title: "태그"
     url: /tags/
@@ -10,13 +10,13 @@ main:
 docs:
   - title: "대목차"
     children:
-      - title: "주제"
+      - title: "Categories"
         url: /categories/
-      - title: "태그"
+      - title: "Tags"
         url: /tags/
 
 counts:
-  - title: "주제"
+  - title: "Categories"
     use: true
-  - title: "태그"
+  - title: "Tags"
     use: true
