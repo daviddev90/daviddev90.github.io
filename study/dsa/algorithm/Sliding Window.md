@@ -1,4 +1,4 @@
-2023-08-02
+2023-08-03
 
 ## What is a Sliding Window?
 

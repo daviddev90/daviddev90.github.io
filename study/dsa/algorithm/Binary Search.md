@@ -1,4 +1,4 @@
-2023-08-01
+2023-08-02
 
 ## What is Binary Search
 
