@@ -10,7 +10,7 @@ sidebar:
   nav: "counts"
 ---
 
-<nav class="cods"><h2>LeetCode Javascript posts</h2><ol><li><a href="/dsa/LeetCode_Javascript~1_-_Two_Sum">1 - Two Sum</a></li><li><a href="/dsa/LeetCode_Javascript~2_-_Add_Two_Numbers">2 - Add Two Numbers</a></li><li><a href="/dsa/LeetCode_Javascript~3_-_Longest_Substring_Without_Repeating_Characters">3 - Longest Substring Without Repeating Characters</a></li><li><a href="/dsa/LeetCode_Javascript~4_-_Median_of_Two_Sorted_Arrays">4 - Median of Two Sorted Arrays</a></li><li><p>5 - Longest Palindromic Substring (current)</p></li></ol></nav>
+<nav class="cods"><h2>LeetCode Javascript posts</h2><ol><li><a href="/dsa/LeetCode_Javascript~1_-_Two_Sum">1 - Two Sum</a></li><li><a href="/dsa/LeetCode_Javascript~2_-_Add_Two_Numbers">2 - Add Two Numbers</a></li><li><a href="/dsa/LeetCode_Javascript~3_-_Longest_Substring_Without_Repeating_Characters">3 - Longest Substring Without Repeating Characters</a></li><li><a href="/dsa/LeetCode_Javascript~4_-_Median_of_Two_Sorted_Arrays">4 - Median of Two Sorted Arrays</a></li><li><p>5 - Longest Palindromic Substring (current)</p></li><li><a href="/dsa/LeetCode_Javascript~6_-_Zigzag_Conversion">6 - Zigzag Conversion</a></li><li><a href="/dsa/LeetCode_Javascript~7_-_Reverse_Integers">7 - Reverse Integers</a></li><li><a href="/dsa/LeetCode_Javascript~8_-_MyAtoI">8 - MyAtoI</a></li></ol></nav>
 
 
 ## Problem
