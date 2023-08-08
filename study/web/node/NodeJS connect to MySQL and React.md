@@ -22,7 +22,7 @@ npm init
 npm i express mysql cors
 touch index.js
 touch insert.js
-touch connect.js
+touch db.js
 ```
 
 Write the above commands in your project root directory.
@@ -36,7 +36,7 @@ Below is the explanation of each step.
    (This command works only on Mac. On Window, you can just make an index.js file.)
 6. And also, make an **insert.js** file and a **db.js** file. I recommend you make a sub-directory and put it there, but I'm making it in the same directory for now.
 
-## Codes
+## Server side code
 
 ### Index.js
 
@@ -99,8 +99,6 @@ module.exports.connect = () => {
 
 ### insert.js
 
-#### insert.js v1: post single word.
-
 ```javascript
 const express = require("express");
 const router = express.Router();
@@ -121,35 +119,7 @@ module.exports = (db) => {
 }
 ```
 
-#### insert.js v2: post an array of words, and put them all in the db.
-
-```javascript
-const express = require("express");
-const router = express.Router();
-
-module.exports = (db) => {
-  router.post("/", (req, res) => {
-    const words = req.body.words;
-    const query = "INSERT INTO words (f, w) VALUES ?";
-    const values = words.map((word) => [word.f, word.w]);
-
-    db.query(query, [values], (err, result) => {
-      if (err) {
-        throw err;
-      }
-    });
-    res.send({
-      message: "success",
-    })
-  });
-
-  return router;
-};
-```
-
 ## Client Side Code
-
-#### V1 - insert a single row
 
 ```javascript
 const url = "http://localhost:4000/insert";
@@ -165,28 +135,3 @@ const res = await fetch(url, {
 })
 // do someting with res message
 ```
-
-#### v2 - insert thousands of rows
-
-```javascript
-const url = "http://localhost:4000/insert";
-const batchSize = 1000;
-
-for (let i = 0; i < total.length; i += batchSize) {
-  const batch = total.slice(i, i + batchSize);
-  // I recommend you try-catch
-  const res = await fetch(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      words: batch,
-    }),
-  });
-  // do someting with res message
-}
-```
-
-In my case, I was moving by db. So I had to write 40 thousand words to a new DB.
-And it caused a '**payload is too large**'  error, so I used a simple batch method like the above.
