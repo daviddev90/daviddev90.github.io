@@ -23,3 +23,44 @@
     margin-bottom: 0;
   }
 }
+
+.home_hello {
+  display: flex;
+  justify-content: center;
+  margin: 3rem 0 6rem;
+
+  p {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin: 0;
+    line-height: 2.2rem;
+  }
+}
+
+.home_languages {
+  margin-bottom: 5rem;
+  h3 {
+    margin: 3rem 0 0.5em;
+    padding-bottom: 0.5em;
+    font-size: 1.2rem;
+    color: #4f565b;
+  }
+  h4 {
+    font-size: 1rem;
+    margin: 1rem 0 0;
+    color: #6b6c6d;
+  }
+  ul {
+    margin: 0.25rem 0;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  li {
+    font-size: 0.95rem;
+    list-style: none;
+    margin: 0.25rem;
+    padding: 0.2rem 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+  }
+}
