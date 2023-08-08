@@ -166,7 +166,7 @@ module.exports = (db) => {
       return res.status(400).send({ message: "No IDs provided" });
     }
 		
-    // this time, to show another way to generate query, I just used join method and parse directly into the query.
+    // this time, to show another way to generate query, I just used join method and parsed directly into the query.
     const query = `DELETE FROM words WHERE id IN (${removingIds.join(",")})`;
 
     db.query(query, (err, result) => {
@@ -175,7 +175,7 @@ module.exports = (db) => {
         res.status(500).send({ message: "An error occurred" });
       } else {
         // If delete success, I will send changed words.
-        // This is not cost-efficient way to feedback user.
+        // This is not a cost-efficient way to give feedback users.
         // But I just want to show how it works.
         const selectQuery = "SELECT * FROM words";
         db.query(selectQuery, (selectErr, selectResults) => {
@@ -284,7 +284,7 @@ const query = `DELETE FROM words WHERE id IN (${removingIds.join(",")})`;
 Directly putting user inputs into queries is DANGEROUS.
 I strongly recommend you always use prepared statements.
 
-Of course, this is just a basic first-step to prevent SQL injection.
+Of course, this is just an essential first step to prevent SQL injection.
 
 ### 2. CORS Policy
 
@@ -328,3 +328,11 @@ This is a simple solution. But this can slow down or block brute-force attacks.
 ### 5. Use Secure Headers
 
 Secure your application by setting appropriate HTTP headers like `X-Content-Type-Options`, `X-Frame-Options`, and `X-XSS-Protection`.
+
+## Conclusion?
+
+Well, I always don't know how to end the posts.
+
+If you have any questions, feel free to ask.
+
+So. Bye:)
