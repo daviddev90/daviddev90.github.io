@@ -6,7 +6,7 @@
 
 2. I wrote 'React' in the post title, but it works the same in other javascript environments.
    Because I don't use any 'React' only library.
-3. My table name is **words**, and it has these columns,
+3. My DB's schema name is **dict**, and table name is **words**, and it has these columns,
    - id (INT, auto increasing key)
    - f (INT, frequency)
    - w (VARCHAR, word)
